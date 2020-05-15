@@ -4,14 +4,13 @@
 #
 Name     : R-hexView
 Version  : 0.3.4
-Release  : 7
+Release  : 8
 URL      : https://cran.r-project.org/src/contrib/hexView_0.3-4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/hexView_0.3-4.tar.gz
 Summary  : Viewing Binary Files
 Group    : Development/Tools
 License  : GPL-2.0
 BuildRequires : buildreq-R
-BuildRequires : util-linux
 
 %description
 # hexview
@@ -19,21 +18,22 @@ The 'hexView' package for R
 
 %prep
 %setup -q -c -n hexView
+cd %{_builddir}/hexView
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571842246
+export SOURCE_DATE_EPOCH=1589534517
 
 %install
-export SOURCE_DATE_EPOCH=1571842246
+export SOURCE_DATE_EPOCH=1589534517
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
